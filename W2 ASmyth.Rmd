@@ -1,0 +1,30 @@
+---
+title: "Developing Data Products Week 2 Assignment"
+author: "Abigail Smyth"
+date: "June 11, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+
+```
+
+## 11 June 2020
+
+Use the interactive map below to view places in and around Belfast Northern Ireland. 
+
+```{r interactiveMap}
+setwd("C:/Users/Abigail/Desktop/Coursera/DataViz/Data Products/W2")
+library(leaflet)
+library(dplyr)
+
+df <- data.frame (lat = runif(500, min=54.5, max=54.7),
+                  lng = runif(500, min=-5.9 , max=-5.7 ))
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions())
+  
+```
